@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Student Information</h2>
+<ul>
+    <li><strong>Student Name:</strong> @ViewBag.StudentName</li>
+    <li><strong>Score:</strong> @ViewBag.Score</li>
+    <li><strong>Grade:</strong> @ViewBag.Grade</li>
+    <li><strong>Remarks:</strong> @(ViewBag.IsPassed ? "PASSED" : "FAILED")</li>
+    <li><strong>Message:</strong> @ViewBag.Message</li>
+    <li><strong>Courses Taken:</strong> @ViewBag.CourseList</li>
+    <li><strong>Number of Courses:</strong> @ViewBag.CourseCount</li>
+    <li><strong>Tuition:</strong> @ViewBag.TuitionFee</li>
+    <li><strong>Net Fee after Discount:</strong> @ViewBag.NetFee</li>
+    <li><strong>Today is:</strong> @ViewBag.Today</li>
+</ul>
+
+<hr />
+
+<h2>Student Object</h2>
+<p><strong>Name:</strong> @ViewBag.Student.Name</p>
+<p><strong>Age:</strong> @ViewBag.Student.Age</p>
+<p><strong>Course:</strong> @ViewBag.Student.Course</p>
+
+<hr />
+
+<h2>All Students</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var stud in ViewBag.Students)
+        {
+            <tr>
+                <td>@stud.Name</td>
+                <td>@stud.Age</td>
+                <td>@stud.Course</td>
+            </tr>
+        }
+    </tbody>
+</table>
